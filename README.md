@@ -1,5 +1,5 @@
 # Market-SILVER
-- 디지털 약자 노년층에 특화된 대화형 쇼핑 챗봇, 마켓실버TM
+- 디지털 약자 노년층에 특화된 대화형 쇼핑 챗봇, 마켓실버<sup>TM</sup>
 
 ## Market-SILVER Android APP
 
