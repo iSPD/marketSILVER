@@ -102,7 +102,9 @@
     <img width="70%" src="https://github.com/iSPD/marketSILVER/blob/main/images/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%9D%BC%EB%B2%A8%EB%A7%81.png"/>
 
     4. 자동 라벨링 된 데이터로 ASR 모델의 데이터셋으로 사용하여 인식률 
-###
+
+- **사용 방법**
+  - Contact : ispd_daniel@outlook.kr(김경훈)
 
 ### SIL-Brain (발화 문장 분석 및 상품 검색)
 #### Pre-Processing
