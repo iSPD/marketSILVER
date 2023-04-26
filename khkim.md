@@ -63,7 +63,7 @@
 
 - **다중모델 음성인식**을 위한 적용 알고리즘
   
-  - **다중 자동음성인식 모델과 챗봇을 통한, 인식 정확도 개선(**특허 출원**)**
+  - **다중 자동음성인식 모델과 챗봇을 통한, 인식 정확도 개선(**특허 출원**)[WordsMatching.py](https://github.com/iSPD/marketSILVER/blob/main/SilVoice/SilVoiceCore/wordsMatching.py)**
     
     1. 자모분리
     
