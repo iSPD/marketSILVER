@@ -155,7 +155,7 @@
   </br>
   
 ### **사용 방법**
-  - Contact : ispd_sally@outlook.kr()
+  - Contact : ispd_sally@outlook.kr(정영선)
 
 ---
 ## LICENSE
