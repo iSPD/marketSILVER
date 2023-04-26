@@ -36,6 +36,8 @@
 - 사용 데이터셋
 
   - [AI-Hub](https://www.aihub.or.kr/aihubdata/data/list.do?pageIndex=1&currMenu=115&topMenu=100&dataSetSn=&srchdataClCode=DATACL001&srchOrder=&SrchdataClCode=DATACL002&searchKeyword=&srchDataRealmCode=REALM002&srchDataTy=DATA004) (노인남녀 명령어 음성, 자유대화 음성 등...)
+
+  - 자체 데이터 수집 및 가공
  
 
 - 사용 라이브러리
@@ -63,9 +65,8 @@
 
 - **다중모델 음성인식**을 위한 적용 알고리즘
   
-  - **다중 자동음성인식 모델과 챗봇을 통한, 인식 정확도 개선(**특허 출원**)**
-  
-   [WordsMatching.py](https://github.com/iSPD/marketSILVER/blob/main/SilVoice/SilVoiceCore/wordsMatching.py)
+  - **다중 자동음성인식 모델과 챗봇을 통한, 인식 정확도 개선(**특허 기술**)**
+  - [WordsMatching.py](https://github.com/iSPD/marketSILVER/blob/main/SilVoice/SilVoiceCore/wordsMatching.py)
     
     1. 자모분리
     
@@ -91,7 +92,7 @@
 
     <img width="70%" src="https://github.com/iSPD/marketSILVER/blob/main/images/%EC%B1%97%EB%B3%BC%EC%A7%88%EC%9D%98%ED%91%9C.png"/>
  
-  - **다중 자동음성인식 모델을 통한, 데이터 자동 라벨링(**특허 출원**)**
+  - **다중 자동음성인식 모델을 통한, 데이터 자동 라벨링(**특허 기술**)**
 
     1. 자모분리
 
@@ -106,8 +107,45 @@
 - **사용 방법**
   - Contact : ispd_daniel@outlook.kr(김경훈)
 
-### SIL-Brain (발화 문장 분석 및 상품 검색)
-#### Pre-Processing
+### SIL-Brain
+  
+  <br>
+  
+  <div align="left">
+  <img width="80%" src="https://github.com/iSPD/marketSILVER/blob/main/images/chatGPT1.JPG"/>
+  </div>
+  
+  </br>
+  <br>
+  
+  <div align="left">
+  <img width="80%" src="https://github.com/iSPD/marketSILVER/blob/main/images/silbrain.jpg"/>
+  </div>
+  
+  </br>
+  <br>
+  
+  <div align="left">
+  <img width="80%" src="https://github.com/iSPD/marketSILVER/blob/main/images/gpt.JPG"/>
+  </div>
+  
+  </br>
+  
+### Tagging Tool  
+  
+   - Python 3.8.0
+  
+   - GUI구성 : tkinter
+  
+   - Functions : tagging 자동 일괄적용, 작업여부 색상 표시
+        
+  <br>
+  
+  <div align="left">
+  <img width="80%" src="https://github.com/iSPD/marketSILVER/blob/main/images/taggingtool.jpg"/>
+  </div>
+  
+  </br>
 
 ---
 ## LICENSE
