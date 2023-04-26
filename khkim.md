@@ -21,6 +21,8 @@
 
 -	`Python 3.8.x`
 
+---
+
 ### SIL-Voice (발화 음성 인식)
 
 - 시니어 특화 ASR(Automatic Speech Recognition) 기술
@@ -66,7 +68,10 @@
 - **다중모델 음성인식**을 위한 적용 알고리즘
   
   - **다중 자동음성인식 모델과 챗봇을 통한, 인식 정확도 개선(**특허 기술**)**
-    - [WordsMatching.py](https://github.com/iSPD/marketSILVER/blob/main/SilVoice/SilVoiceCore/wordsMatching.py)
+    
+    [WordsMatching.py](https://github.com/iSPD/marketSILVER/blob/main/SilVoice/SilVoiceCore/wordsMatching.py)
+    
+    ###
     
     1. 자모분리
     
@@ -107,6 +112,8 @@
 - **사용 방법**
   - Contact : ispd_daniel@outlook.kr(김경훈)
 
+---
+
 ### SIL-Brain
   
   <br>
@@ -146,6 +153,9 @@
   </div>
   
   </br>
+  
+### **사용 방법**
+  - Contact : ispd_sally@outlook.kr()
 
 ---
 ## LICENSE
