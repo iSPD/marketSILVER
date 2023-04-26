@@ -106,3 +106,13 @@
 
 ### SIL-Brain (발화 문장 분석 및 상품 검색)
 #### Pre-Processing
+
+---
+## LICENSE
+- [MIT](https://github.com/iSPD/COPyCOP/blob/main/LICENSE)
+
+---
+## 문의 사항
+- (주)iSPD 정한별 대표
+- ispd_paul@outlook.kr
+- 010-9930-1791
