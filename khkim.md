@@ -111,7 +111,7 @@
 
 ---
 ## LICENSE
-- [MIT](https://github.com/iSPD/COPyCOP/blob/main/LICENSE)
+- [MIT](https://github.com/iSPD/marketSILVER/blob/main/LICENSE.md)
 
 ---
 ## 문의 사항
