@@ -1,6 +1,14 @@
 # Market-SILVER
 - 디지털 약자 노년층에 특화된 대화형 쇼핑 챗봇, 마켓실버<sup>TM</sup>
 
+---
+
+## 🕰️ **개발 기간**
+
+- 2022년 11월 21일 ~ 2023년 4월 14일
+
+---
+
 ## Market-SILVER Android APP
 
 <img width="30%" src="https://github.com/iSPD/marketSILVER/blob/main/images/marketSilver.jpg"/> <img width="30%" src="https://github.com/iSPD/marketSILVER/blob/main/images/marketSilverMovie.gif"/> <img width="30%" src="https://github.com/iSPD/marketSILVER/blob/main/images/chatGPT3.5.gif"/>
