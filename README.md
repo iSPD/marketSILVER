@@ -67,9 +67,11 @@
 
 - **다중모델 음성인식**으로 오류단어를 마켓실버 이용자에게 질문하여 최종 결과물의 **CER(Character Error Rate)를 획기적으로 개선**
 
+<div align="center">
 <img width="70%" src="https://github.com/iSPD/marketSILVER/blob/main/images/%EB%8B%A4%EC%A4%91%EC%9D%B8%EC%8B%9D.png"/>
 
 <img width="70%" src="https://github.com/iSPD/marketSILVER/blob/main/images/%EC%9D%B8%EC%8B%9D%EB%8D%B0%EC%9D%B4%ED%84%B0.png"/>
+</div>
 
 ---
 
