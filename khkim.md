@@ -59,7 +59,7 @@
 
 - **다중모델 음성인식**을 위한 적용 알고리즘
   
-  - 다중 자동음성인식 모델과 챗봇을 통한, 인식 정확도 개선(**특허 출원**)
+  - **다중 자동음성인식 모델과 챗봇을 통한, 인식 정확도 개선(**특허 출원**)**
     
     1. 자모분리
     
@@ -84,6 +84,17 @@
     3. 유사도 수치에 따른, 챗봇 질의와 최종 인식 결과물 보정
 
     <img width="70%" src="https://github.com/iSPD/marketSILVER/blob/main/images/%EC%B1%97%EB%B3%BC%EC%A7%88%EC%9D%98%ED%91%9C.png"/>
+    
+    
+  - **다중 자동음성인식 모델을 통한, 데이터 자동 라벨링(**특허 출원**)**
+
+    1. 자모분리
+
+    2. 자모열 유사도 측정
+
+    3. 유사도 수치에 따른, 데이터 자동 라벨링
+
+    <img width="70%" src="https://github.com/iSPD/marketSILVER/blob/main/images/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%9D%BC%EB%B2%A8%EB%A7%81.png"/>
 
 ###
 
