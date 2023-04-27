@@ -490,62 +490,18 @@ def check_existing_product_mix_whole(in_main_words_list):
 
 if __name__ == "__main__":
 
-    ### test-code -------------------------------------------------------------------------------------------->
-    # category_id_and_name_of_6th, special_options_list, excluded_keywords = compareSpeechTxtToDB_Test()
-    # if category_id_and_name_of_6th != '':
-    #     print(f"최종 6분류명 : {category_id_and_name_of_6th}")   # ex) "486503&막창#돼지 막창"
-    #     print(f"특화요소 : {special_options_list}")   # ex) [(1, 2, '불막창#양념 막창', '초벌')]
-    #     print(f"제외키워드 : {excluded_keywords}")    # ex) "순한양념구이"
-    ### <------------------------------------------------------------------------------------------------------
-    
-    ### test-code -------------------------------------------------------------------------------------------->
-    # category_id_and_name_of_6th, special_options_list, excluded_keywords = compareSpeechTxtToDB("소고기 국거리 한근 사줘")
-    # if category_id_and_name_of_6th != '':
-    #     print(f"최종 6분류명 : {category_id_and_name_of_6th}")   # ex) "486503&막창#돼지 막창"
-    #     print(f"특화요소 : {special_options_list}")   # ex) [(1, 2, '불막창#양념 막창', '초벌')]
-    #     print(f"제외키워드 : {excluded_keywords}")    # ex) "순한양념구이"
-    ### <-------------------------------------------------------------------------------------------------------    
-    
-    ### test-code -------------------------------------------------------------------------------------------->
-    # products = ['국내산 사과', '아오리 사과', '꼬마과', '국내산 아오리 사과', '꼬마 사과', '씻어 나온 국내산 아오리 사과', '세척된 국내산 꼬마 사과']
-    # keywordsCompareA(products)
-    ### <------------------------------------------------------------------------------------------------------
-    
-    ### test-code -------------------------------------------------------------------------------------------->
-    ## 1~5 : compareSpeechTxtToDB() 에 묶어 놓음.
-    ## 3~5 : keywordsCompareB() 에 묶어 놓음
-    ## 1~3 : get_category6th_candidates() 에 묶어 놓음. 실제 서버 돌릴 때 쓰는 함수임.
     sentence_user = "소고기 국거리 한근 사줘"
-    
-    # 1. 카테고리 문자열 비교용 DB 생성    
     db_str_search = make_category_search_db('makeDB/db/food_combine_search_db.csv')        
-    
-    # 2. 사용자 질문 용 DB 생성. 
     db_str_user = make_user_question_db('makeDB/db/food_combine_user_db.csv')
     
-    # 3. 발화 문장 전처리, db검색, 후보카테고리 리스트 출력    
     list_of_category_candidates = get_list_of_category_candidates(db_str_search, db_str_user, sentence_user)
     
-    # 4. 검색 결과와 매치되는 사용자 질문용 DB 를 트리로 구성.
     rootnode = make_tree(list_of_category_candidates)
-    draw_tree(rootnode) # for debugging
 
-    # 5. 사용자에게 질문하면서 카테고리 및 최종 6분류, 특화명을 결정한다.
     category_id_and_name_of_6th = ''
     special_options_list = [] 
     excluded_keywords = ''
     category_id_and_name_of_6th, special_options_list, excluded_keywords = search_tree(rootnode)
     
-    # 6. 최종 결과 출력
-    if category_id_and_name_of_6th != '':
-        print(f"최종 6분류명 : {category_id_and_name_of_6th}")   # ex) "486503&막창#돼지 막창"
-        print(f"특화요소 : {special_options_list}")   # ex) [(1, 2, '불막창#양념 막창', '초벌'), (1, 2, '돌김#돌덩이김', 'none#곱창 김')]
-        print(f"제외키워드 : {excluded_keywords}")    # ex) "순한양념구이"
-
-    # <출력 예시>
-    # 6분류명: final_selected.name(스트링) : K6&카테고리ID&6분류명&유의어1#유의어2 => 카테고리ID&6분류명#유의어1#유의어2... (ex)'486503&막창#돼지 막창'
-    # 특화: option_lsit(리스트) : (선택된 인덱스, 전체요소개수, 선택된 특화명, 제외될 특화명)튜플의 리스트 => [(1, 2, '돌김#돌덩이김', 'none#곱창 김'), (0, 0, '2022년산', '2020년산'), ...] 
-    # 제외키워드: except_keyword(스트링) : '제외1#제외1유의어'   
-    ### <------------------------------------------------------------------------------------------------------
-
+    
 
