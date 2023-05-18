@@ -250,6 +250,11 @@ def doChatGPT(inText):
     presence_penalty=0.0,
     stop=["\n"]
     )
+    
+result = doChatGPT(inText)
+print(result)
+# 사고 싶은 것: 두부
+# 용도: 김치찌개
 ```
 
 - GPT-3.5에 미학습 상품명 등을 Prompt, Completion 형태의 JSON 파일로 작성 후, OpenAI의 CLI Data Preparation Tool을 이용 JSONL 형태로 변환하여 데이터셋 생성
