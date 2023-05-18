@@ -45,6 +45,8 @@
   
 - 사용 데이터셋
 
+  - ksponspeech(Pretrained)
+
   - [AI-Hub](https://www.aihub.or.kr/aihubdata/data/list.do?pageIndex=1&currMenu=115&topMenu=100&dataSetSn=&srchdataClCode=DATACL001&srchOrder=&SrchdataClCode=DATACL002&searchKeyword=&srchDataRealmCode=REALM002&srchDataTy=DATA004) (노인남녀 명령어 음성, 자유대화 음성 등...)
 
   - 자체 데이터 수집 및 가공
@@ -63,9 +65,21 @@
 
   - Gunicorn
 
+- Training
+  - 음성 데이터를 Sample Rate 16,000Hz로 변환하여 통일
+
+  - Broken 음성 데이터 제거(약 3%정제)
+
+  - 시니어 Test Dataset에서 평균 CER 1.95
+
+ - Inference
+  - Flask와 Gunicorn을 이용하여 Inference 서버 구축 ( Inference Time : 2,000ms )
+
 ---
 
 - **다중모델 음성인식**으로 오류단어를 마켓실버 이용자에게 질문하여 최종 결과물의 **CER(Character Error Rate)를 획기적으로 개선**
+
+    - 기존 모델 1개 적용 대비 CER 0.25개선하여 최종 CER 1.7
 
 <div align="center">
 <img width="70%" src="https://github.com/iSPD/marketSILVER/blob/main/images/%EB%8B%A4%EC%A4%91%EC%9D%B8%EC%8B%9D.png"/>
