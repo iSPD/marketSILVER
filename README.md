@@ -162,7 +162,53 @@
   
   </br>
   
-### Tagging Tool  
+### Named Entity Recognition
+
+#### 사용 모델
+- BERT-Base, Multilingual Cased ( Transformer )
+
+#### 구현 내용
+- Synthetic 데이터셋 생성 : 수집한 상품명과 시니어가 물건 구매 시 많이 사용하는 주어, 동사 등을 조합하여 Random으로 문장 생성(주어, 동사 자동 Tagging)
+
+- 상품 정보의 카테고리, 상품명, 단위, 용도 등의 Tagging
+
+- Pre-Training 된 BERT 모델에 Fine Tunning (Validation Accuracy 95%)
+
+```Python
+def create_model():
+  model = TFBertModel.from_pretrained("bert-base-multilingual-cased", from_pt=False, num_labels=len(label_dict), output_attentions = False, output_hidden_states = False)
+
+  token_inputs = tf.keras.layers.Input((SEQ_LEN,), dtype=tf.int32, name='input_word_ids') # 토큰 인풋
+  mask_inputs = tf.keras.layers.Input((SEQ_LEN,), dtype=tf.int32, name='input_masks') # 마스크 인풋
+
+  bert_outputs = model([token_inputs, mask_inputs])
+  bert_outputs = bert_outputs[0] # shape : (Batch_size, max_len, 30(개체의 총 개수))
+  # nr = tf.keras.layers.Dense(16, activation='softmax')(bert_outputs) # shape : (Batch_size, max_len, 30)
+  nr = tf.keras.layers.Dense(21, activation='softmax')(bert_outputs) # shape : (Batch_size, max_len, 30)
+  
+  nr_model = tf.keras.Model([token_inputs, mask_inputs], nr)
+  
+  nr_model.compile(optimizer=tf.keras.optimizers.Adam(lr=0.00002), loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=False),
+      metrics=['sparse_categorical_accuracy'])
+  nr_model.summary()
+  return nr_model
+```
+
+### GENERATIVE AI CHATBOT
+
+- 상품 데이터 분석 & 구조화 : 대형 온라인 쇼핑몰 식품 카테고리 전체의 250만개 상품 Data의 대표상품 설정, 상세옵션 항목 구조화를 통한 정답상품 생성
+
+- 데이터 수집 : 상품 정보는 자체적인 최적화 크롤러를 개발하여 자동 수집
+
+- 발화 문장에서 추출된 유의미 단어를 입력, 관련 하위 카테고리 추출 알고리즘 적용
+
+- 복수의 하위 카테고리, 대표상품, 상세옵션 항목을 Multi-Tree로 계층화(JNI)
+
+- Multi-Tree를 기반으로 루트노드의 서브트리를 발화자에게 송신, 발화자 응답 데이터를 수신하여 서브트리를 재검색하는 방법으로 상품 카테고리를 특정하고, 해당 상세 옵션을 선택 유도하는 방식의, 챗기반 대표 상품 Selector 적용
+
+- SILbrain 검색 챗봇에서의 검색 결과를 시니어 특화 정답상품 2~3개로 Curation
+
+#### Tagging Tool  
   
    - Python 3.8.0
   
@@ -177,6 +223,49 @@
   </div>
   
   </br>
+
+### Chat-GPT SOLUTION
+
+- OpenAI의 Completion.Create API 이용 Server API구현(Gunicorn, Flask 이용)
+- Prompt Engineering Code 구성
+- Prompt Engineering 시, Max Tokens 값 조절하여 속도 조절 (값이 작을수록 속도 향상)
+
+<!-- <Prompt Engineering API> -->
+```Python
+inText = '김치찌개 하게 두부 사줘!'
+
+def doChatGPT(inText):
+    load_dotenv()
+
+    openai.api_key = apiKey
+    
+    response = openai.Completion.create(
+    model="text-davinci-003",
+    # model="gpt-3.5-turbo",
+    prompt=f"Q: {inText}. 문장에서 구매하고자 하는 상품과 용도를 단어로만 선택해줘.\n A:",
+    temperature=0,
+    max_tokens=27,#대답의 최대 Token수, 길수록 속도 느려짐
+    top_p=1,
+    frequency_penalty=0.0,
+    presence_penalty=0.0,
+    stop=["\n"]
+    )
+```
+
+- GPT-3.5에 미학습 상품명 등을 Prompt, Completion 형태의 JSON 파일로 작성 후, OpenAI의 CLI Data Preparation Tool을 이용 JSONL 형태로 변환하여 데이터셋 생성
+- Davinci 모델에 JSONL 파일로 OpenAI의 CLI인 fine_tunes.create으로 Fine Tunning
+
+<!--  <JSON 데이터셋 예제> -->
+```JSON
+{"prompt": "<prompt text>", "completion": "<ideal generated text>"}
+{"prompt": "<prompt text>", "completion": "<ideal generated text>"}
+{"prompt": "<prompt text>", "completion": "<ideal generated text>"}
+```
+
+<!-- <Fine Tunning 예제> -->
+```Python
+openai api fine_tunes.create -t <TRAIN_FILE_ID_OR_PATH> -m <BASE_MODEL>
+```
   
 ### **사용 방법**
   - Contact : ispd_sally@outlook.kr(정영선)
