@@ -253,7 +253,7 @@ def doChatGPT(inText):
     
 result = doChatGPT(inText)
 print(result)
-# 사고 싶은 것: 두부
+# 상품: 두부
 # 용도: 김치찌개
 ```
 
