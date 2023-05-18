@@ -73,7 +73,7 @@
   - 시니어 Test Dataset에서 평균 CER 1.95
 
  - Inference
-  - Flask와 Gunicorn을 이용하여 Inference 서버 구축 ( Inference Time : 2,000ms )
+   - Flask와 Gunicorn을 이용하여 Inference 서버 구축 ( Inference Time : 2,000ms )
 
 ---
 
